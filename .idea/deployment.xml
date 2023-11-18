@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="Ubuntu (a69017a7-6d7b-4281-83f5-5bea718ecb4c)" remoteFilesAllowedToDisappearOnAutoupload="false" confirmBeforeUploading="false">
+    <option name="confirmBeforeUploading" value="false" />
+    <serverData>
+      <paths name="Ubuntu (a69017a7-6d7b-4281-83f5-5bea718ecb4c)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/Desktop/pcap_test" local="$PROJECT_DIR$" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-ubuntu" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+      <paths name="Ubuntu (d8db47d2-0c55-4e59-be31-b30dde5b9d6d)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/Desktop/pcap_test" local="$PROJECT_DIR$" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
