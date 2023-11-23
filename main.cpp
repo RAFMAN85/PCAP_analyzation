@@ -1,6 +1,4 @@
 #include <iostream>
-#include <vector>
-#include <map>
 #include "pcap_input.h"
 #include "Fourier.h"
 
