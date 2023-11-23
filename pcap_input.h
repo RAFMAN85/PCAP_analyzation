@@ -19,7 +19,7 @@ public:
         const u_char *data;
         std::string src_ip;
         std::string dst_ip;
-        std::string timestamp;
+        struct timeval timestamp;
     };
 
 private:
@@ -31,8 +31,6 @@ public:
     PcapReader(const std::string& filename);
 
     const std::vector<Packet>& getPackets() const;
-
-    void printFirst10Packets();
 };
 
 #endif //PCAP_TEST_PCAP_INPUT_H

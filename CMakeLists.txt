@@ -8,7 +8,10 @@ add_executable(PCAP_test main.cpp
         pcap_input.h
         pcap_input.cpp
         pcap_input.cpp
-        ip_statistics.cpp
-        ip_statistics.h)
+        Fourier.cpp
+        Fourier.h
+        Ignore_list.cpp
+        Ignore_list.h
+)
 
 target_link_libraries(PCAP_test pcap)
