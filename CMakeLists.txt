@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.25)
-project(pseudo-pcap-analyze VERSION 1.0.0)
+project(PCAP_test)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(pseudo-pcap-analyze main.cpp
+add_executable(PCAP_test main.cpp
         pcap_input.h
         pcap_input.h
         pcap_input.cpp
@@ -14,4 +14,4 @@ add_executable(pseudo-pcap-analyze main.cpp
         Ignore_list.h
 )
 
-target_link_libraries(pseudo-pcap-analyze pcap)
+target_link_libraries(PCAP_test pcap)
