@@ -3,10 +3,17 @@
 #include "Fourier.h"
 
 
-int main() {
-    std::string pcapFile = "111.pcap";
-    std::string ignoreListFile = "ignore_ips.txt";
-    double threshold = 1.0;
+int main(int argc, char* argv[]) {
+
+    if(argc==1){
+        std::cout<<"Usage: ./pseudo-pcap-analyze your_pcap threshold\n";
+        std::cout<<"or ./pseudo-pcap-analyze your_pcap threshold list_ignore_ips\n";
+        return 0;
+    }
+
+    std::string pcapFile = argv[1];
+    double threshold = atof(argv[2]);
+    std::string ignoreListFile = (argc>3) ? argv[3] : "";
 
     PcapReader reader(pcapFile);
     FourierTransform ft;
