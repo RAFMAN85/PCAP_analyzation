@@ -4,6 +4,7 @@
 #include <complex>
 #include <cmath>
 #include <sstream>
+#include <numeric>
 
 #ifndef PCAP_TEST_FOURIER_H
 #define PCAP_TEST_FOURIER_H
@@ -30,6 +31,8 @@ private:
 public:
     std::vector<PcapReader::Packet> findPseudoperiodPackets(const std::vector<PcapReader::Packet>& packets, double threshold, const IgnoreList& ignoreList);
 };
+
+void computeTimestampStatistics(const std::vector<PcapReader::Packet>& packets, double& mean, double& variance);
 
 
 #endif //PCAP_TEST_FOURIER_H

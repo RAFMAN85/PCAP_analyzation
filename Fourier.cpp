@@ -31,3 +31,31 @@ std::vector<PcapReader::Packet> FourierTransform::findPseudoperiodPackets(const 
 
     return pseudoperiodPackets;
 }
+
+void computeTimestampStatistics(const std::vector<PcapReader::Packet>& packets, double& mean, double& variance) {
+    if (packets.empty()) {
+        mean = 0;
+        variance = 0;
+        return;
+    }
+
+    std::vector<double> timestamps;
+    for (const auto& packet : packets) {
+        double time = packet.timestamp.tv_sec + packet.timestamp.tv_usec / 1e6; // С учетом микросекунд
+        timestamps.push_back(time);
+    }
+
+    double sum = 0.0;
+    for (double time : timestamps) {
+        sum += time;
+    }
+    mean = sum / timestamps.size();
+
+    double sq_sum = 0.0;
+    for (double time : timestamps) {
+        sq_sum += std::pow(time - mean, 2);
+    }
+    variance = sq_sum / (timestamps.size() - 1); // Исправленное вычисление дисперсии
+
+}
+
