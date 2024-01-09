@@ -65,7 +65,7 @@ void computeTimestampStatistics(const std::vector<PcapReader::Packet>& packets, 
     for (double time : timestamps) {
         sq_sum += std::pow(time - mean, 2);
     }
-    variance = sq_sum / (timestamps.size() - 1); // Исправленное вычисление дисперсии
+    variance = sq_sum / (timestamps.size() - 1);
 
 }
 
