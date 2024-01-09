@@ -29,7 +29,7 @@ private:
     }
 
 public:
-    std::vector<PcapReader::Packet> findPseudoperiodPackets(const std::vector<PcapReader::Packet>& packets, double threshold, const IgnoreList& ignoreList);
+    std::vector<PcapReader::Packet> findPseudoperiodPackets(const std::vector<PcapReader::Packet>& packets, double threshold, const IgnoreList& ignoreList, int* peakCount);
 };
 
 void computeTimestampStatistics(const std::vector<PcapReader::Packet>& packets, double& mean, double& variance);

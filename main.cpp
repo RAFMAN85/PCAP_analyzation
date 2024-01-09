@@ -5,11 +5,11 @@
 
 int main(int argc, char* argv[]) {
 
-//    if(argc==1){
-//        std::cout<<"Usage: ./pseudo-pcap-analyze your_pcap threshold\n";
-//        std::cout<<"or ./pseudo-pcap-analyze your_pcap threshold list_ignore_ips\n";
-//        return 0;
-//    }
+    if(argc==1){
+        std::cout<<"Usage: ./pseudo-pcap-analyze your_pcap threshold\n";
+        std::cout<<"or ./pseudo-pcap-analyze your_pcap threshold list_ignore_ips\n";
+        return 0;
+    }
 
     std::string pcapFile = argv[1];
     double threshold = atof(argv[2]);
@@ -19,13 +19,15 @@ int main(int argc, char* argv[]) {
     FourierTransform ft;
     IgnoreList ignoreList(ignoreListFile);
 
-    auto pseudoperiodPackets = ft.findPseudoperiodPackets(reader.getPackets(), threshold, ignoreList);
+    int peakCount = 0;
+    auto pseudoperiodPackets = ft.findPseudoperiodPackets(reader.getPackets(), threshold, ignoreList, &peakCount);
 
     double mean, variance;
     computeTimestampStatistics(pseudoperiodPackets, mean, variance);
 
     std::cout << "Среднее значение временных меток: " << mean << "\n";
     std::cout << "Дисперсия временных меток: " << variance << "\n";
+    std::cout << "Количество найденных пиков: " << peakCount << "\n";
 
 
 //    for (const auto& packet : pseudoperiodPackets) {

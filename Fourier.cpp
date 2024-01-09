@@ -1,6 +1,6 @@
 #include "Fourier.h"
 
-std::vector<PcapReader::Packet> FourierTransform::findPseudoperiodPackets(const std::vector<PcapReader::Packet>& packets, double threshold, const IgnoreList& ignoreList) {
+std::vector<PcapReader::Packet> FourierTransform::findPseudoperiodPackets(const std::vector<PcapReader::Packet>& packets, double threshold, const IgnoreList& ignoreList, int* peakCount) {
     std::vector<double> timestamps;
 
     for (const auto& packet : packets) {
@@ -22,12 +22,22 @@ std::vector<PcapReader::Packet> FourierTransform::findPseudoperiodPackets(const 
         return std::abs(c);
     });
 
+
+    *peakCount = std::count_if(amplitudes.begin(), amplitudes.end(), [threshold](double amp) {
+        return amp > threshold;
+    });
+
+
+
     std::vector<PcapReader::Packet> pseudoperiodPackets;
     for (size_t i = 0; i < amplitudes.size(); ++i) {
         if (amplitudes[i] > threshold && i < packets.size()) {
             pseudoperiodPackets.push_back(packets[i]);
         }
     }
+
+
+
 
     return pseudoperiodPackets;
 }
@@ -58,4 +68,6 @@ void computeTimestampStatistics(const std::vector<PcapReader::Packet>& packets, 
     variance = sq_sum / (timestamps.size() - 1); // Исправленное вычисление дисперсии
 
 }
+
+
 
