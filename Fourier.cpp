@@ -9,8 +9,8 @@ std::vector<PcapReader::Packet> FourierTransform::findPseudoperiodPackets(const 
             //double timeInWeeks = (packet.timestamp.tv_sec / (86400.0 * 7));//с учетом недель
             //double timeInDays = (packet.timestamp.tv_sec / 86400.0);//с учетом дней
             //double time = (packet.timestamp.tv_sec / 3600.0); //с учетом часов
-            //double time = (packet.timestamp.tv_sec / 60.0); //с учетом минут
-            double time = packet.timestamp.tv_sec + packet.timestamp.tv_usec / 1e6; //с учетом милисекунд
+            double time = (packet.timestamp.tv_sec / 60.0); //с учетом минут
+            //double time = packet.timestamp.tv_sec + packet.timestamp.tv_usec / 1e6; //с учетом милисекунд
             timestamps.push_back(time);
         }
     }

@@ -12,7 +12,8 @@ int main(int argc, char* argv[]) {
     }
 
     std::string pcapFile = argv[1];
-    double threshold = atof(argv[2]);
+    //double threshold = atof(argv[2]);
+    double threshold = 11;
     std::string ignoreListFile = (argc>3) ? argv[3] : "";
 
     PcapReader reader(pcapFile);
