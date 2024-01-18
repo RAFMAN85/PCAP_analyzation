@@ -82,7 +82,19 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/rafman/Desktop/pcap_test/ip_statistics.cpp">
+			<Option target="PCAP_test"/>
+		</Unit>
+		<Unit filename="/home/rafman/Desktop/pcap_test/ip_statistics.h">
+			<Option target="PCAP_test"/>
+		</Unit>
 		<Unit filename="/home/rafman/Desktop/pcap_test/main.cpp">
+			<Option target="PCAP_test"/>
+		</Unit>
+		<Unit filename="/home/rafman/Desktop/pcap_test/pcap_input.cpp">
+			<Option target="PCAP_test"/>
+		</Unit>
+		<Unit filename="/home/rafman/Desktop/pcap_test/pcap_input.h">
 			<Option target="PCAP_test"/>
 		</Unit>
 		<Unit filename="/home/rafman/Desktop/pcap_test/CMakeLists.txt">
