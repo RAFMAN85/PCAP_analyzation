@@ -12,8 +12,7 @@ int main(int argc, char* argv[]) {
     }
 
     std::string pcapFile = argv[1];
-    //double threshold = atof(argv[2]);
-    double threshold = 11;
+    double threshold = atof(argv[2]);
     std::string ignoreListFile = (argc>3) ? argv[3] : "";
 
     PcapReader reader(pcapFile);
@@ -30,7 +29,7 @@ int main(int argc, char* argv[]) {
     std::cout << "Дисперсия временных меток: " << variance << "\n";
     std::cout << "Количество найденных пиков: " << peakCount << "\n";
 
-
+//Uncomment for result output
 //    for (const auto& packet : pseudoperiodPackets) {
 //        char timestampStr[64];
 //        struct tm *ltime;
